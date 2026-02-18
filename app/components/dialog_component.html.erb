@@ -1,0 +1,40 @@
+<dialog id="<%= id %>" 
+        class="rounded-lg border-none bg-white p-0 shadow-xl max-w-md w-full m-auto <%= options[:class] %>"
+        aria-labelledby="<%= title_id %>" 
+        aria-describedby="<%= description_id %>" 
+        closedby="<%= closedby %>">
+  <header class="relative p-4 border-b border-gray-200">
+    <hgroup>
+      <h2 id="<%= title_id %>" class="m-0 text-lg font-semibold text-gray-900"><%= title %></h2>
+      <% if description %>
+        <p id="<%= description_id %>" class="m-0 mt-1 text-sm text-gray-600"><%= description %></p>
+      <% end %>
+    </hgroup>
+    <% if show_close_button %>
+      <button type="button" 
+              commandfor="<%= id %>" 
+              command="close" 
+              class="absolute right-4 top-4 text-gray-500 hover:text-gray-700 text-2xl leading-none"
+              aria-label="ダイアログを閉じる">&times;</button>
+    <% end %>
+  </header>
+  <form method="<%= confirm_form ? 'POST' : 'dialog' %>" action="<%= confirm_form || '#' %>">
+    <article class="p-4 text-sm text-gray-700">
+      <%= body %>
+    </article>
+    <footer class="flex items-center justify-end gap-2 p-4 border-t border-gray-200">
+      <% if footer %>
+        <%= footer %>
+      <% else %>
+        <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50" 
+                type="submit" 
+                formmethod="dialog" 
+                formnovalidate 
+                value="cancel"><%= cancel_text %></button>
+        <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700" 
+                type="submit" 
+                autofocus><%= confirm_text %></button>
+      <% end %>
+    </footer>
+  </form>
+</dialog>
