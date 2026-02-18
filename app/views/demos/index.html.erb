@@ -1,61 +1,110 @@
-<div class="grid grid-cols-2 gap-x-8 gap-y-16 max-w-2xl mt-8 mx-auto bg-gray-100 p-12">
+<h1 class="text-3xl font-bold text-center mt-12">DialogComponent デモ</h1>
+
+<% if flash[:notice] %>
+  <div class="notice mx-auto bg-emerald-200 p-4 rounded-2xl text-emerald-900"><%= flash[:notice] %></div>
+<% end %>
+
+<div class="grid grid-cols-2 gap-x-8 gap-y-16 max-w-2xl mt-8 mx-auto bg-gray-100 p-32">
+  <h2 class="text-2xl font-semibold col-span-full text-center">Tailwind版</h2>
   <button type="button" 
           commandfor="example-dialog1" 
           command="show-modal"
           class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150">
-    ダイアログ1を開く
+    ダイアログ1
   </button>
 
   <button type="button" 
           commandfor="example-dialog2" 
           command="show-modal"
           class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-150">
-    ダイアログ2を開く
+    ダイアログ2
   </button>
 
   <button type="button" 
           commandfor="example-dialog3" 
           command="show-modal"
           class="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-150">
-    ダイアログ3を開く
+    ダイアログ3
   </button>
 
   <button type="button" 
           commandfor="example-dialog4" 
           command="show-modal"
           class="px-6 py-3 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-150">
-    ダイアログ4を開く
+    ダイアログ4
   </button>
 
   <button type="button" 
           commandfor="example-dialog5" 
           command="show-modal"
           class="px-6 py-3 bg-yellow-600 text-white font-semibold rounded-lg shadow-md hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-150">
-    ダイアログ5を開く
+    ダイアログ5
   </button>
 
   <button type="button" 
           commandfor="example-dialog6" 
           command="show-modal"
           class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150">
-    ダイアログ6を開く
+    ダイアログ6
+  </button>
+</div>
+
+<div class="grid grid-cols-2 gap-x-8 gap-y-16 max-w-2xl mt-8 mx-auto bg-gray-100 p-32">
+  <h2 class="text-2xl font-semibold col-span-full text-center">通常のCSS版</h2>
+  <button type="button" 
+          commandfor="example-dialog1css" 
+          command="show-modal"
+          class="dialog-button dialog-button-blue">
+    ダイアログ1
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog2css" 
+          command="show-modal"
+          class="dialog-button dialog-button-green">
+    ダイアログ2
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog3css" 
+          command="show-modal"
+          class="dialog-button dialog-button-purple">
+    ダイアログ3
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog4css" 
+          command="show-modal"
+          class="dialog-button dialog-button-red">
+    ダイアログ4
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog5css" 
+          command="show-modal"
+          class="dialog-button dialog-button-yellow">
+    ダイアログ5
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog6css" 
+          command="show-modal"
+          class="dialog-button dialog-button-indigo">
+    ダイアログ6
   </button>
 </div>
 
 <%= render(DialogComponent.new(id: "example-dialog1")) do |c| %>
   <% c.with_title do %>
-    サンプルダイアログ1
+    c.with_title
   <% end %>
 
   <% c.with_description do %>
-    基本的なダイアログの例
+    c.with_description
   <% end %>
 
   <% c.with_body do %>
-    <p>
-      これは最初のダイアログです。
-      DialogComponentを使用して、簡単にモーダルダイアログを実装できます。
-    </p>
+    c.with_body
   <% end %>
 <% end %>
 
@@ -82,7 +131,7 @@
   <% end %>
 
   <% c.with_description do %>
-    削除確認ダイアログ
+    ダイアログの外をクリックしてもEscキーを押しても閉じません
   <% end %>
 
   <% c.with_body do %>
@@ -90,8 +139,6 @@
       <strong class="font-semibold">警告:</strong> この操作は取り消せません。
       本当に削除しますか？
     </p>
-    <p class="mt-2 text-xs text-gray-600">
-      （ダイアログの外をクリックしてもEscキーを押しても閉じません）
   <% end %>
 
   <% c.with_footer do %>
@@ -112,7 +159,7 @@
   <% end %>
 
   <% c.with_description do %>
-    情報ダイアログ
+    情報ダイアログ（OKボタンのみ）
   <% end %>
 
   <% c.with_body do %>
@@ -133,13 +180,13 @@
   <% end %>
 <% end %>
 
-<%= render(DialogComponent.new(id: "example-dialog5")) do |c| %>
+<%= render(DialogComponent.new(id: "example-dialog5", confirm_form: demos_create_path)) do |c| %>
   <% c.with_title do %>
     サンプルダイアログ5
   <% end %>
 
   <% c.with_description do %>
-    フォーム入力ダイアログ
+    フォーム送信ダイアログ
   <% end %>
 
   <% c.with_body do %>
@@ -156,7 +203,143 @@
   <% end %>
 <% end %>
 
-<%= render(DialogComponent.new(id: "example-dialog6")) do |c| %>
+<%= render(DialogComponent.new(id: "example-dialog6", confirm_form: demos_create_path)) do |c| %>
+  <% c.with_title do %>
+    サンプルダイアログ6
+  <% end %>
+
+  <% c.with_description do %>
+    設定ダイアログ
+  <% end %>
+
+  <% c.with_body do %>
+    <div class="space-y-3">
+      <label class="flex items-center gap-2">
+        <input type="checkbox" class="rounded" checked />
+        <span>メール通知を受け取る</span>
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox" class="rounded" checked />
+        <span>プッシュ通知を有効にする</span>
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox" class="rounded" />
+        <span>マーケティング情報を受け取る</span>
+      </label>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render(DialogCssComponent.new(id: "example-dialog1css")) do |c| %>
+  <% c.with_title do %>
+    c.with_title
+  <% end %>
+
+  <% c.with_description do %>
+    c.with_description
+  <% end %>
+
+  <% c.with_body do %>
+    c.with_body
+  <% end %>
+<% end %>
+
+<%= render(DialogCssComponent.new(id: "example-dialog2css")) do |c| %>
+  <% c.with_title do %>
+    サンプルダイアログ2
+  <% end %>
+
+  <% c.with_description do %>
+    確認ダイアログの例
+  <% end %>
+
+  <% c.with_body do %>
+    <p>
+      このダイアログは確認用です。
+      本当に実行してよろしいですか？
+    </p>
+  <% end %>
+<% end %>
+
+<%= render(DialogCssComponent.new(id: "example-dialog3css", closedby: "none", show_close_button: false)) do |c| %>
+  <% c.with_title do %>
+    サンプルダイアログ3
+  <% end %>
+
+  <% c.with_description do %>
+    ダイアログの外をクリックしてもEscキーを押しても閉じません
+  <% end %>
+
+  <% c.with_body do %>
+    <p>
+      <strong class="font-semibold">警告:</strong> この操作は取り消せません。
+      本当に削除しますか？
+    </p>
+  <% end %>
+
+  <% c.with_footer do %>
+    <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50" 
+            type="submit" 
+            formmethod="dialog" 
+            formnovalidate 
+            value="cancel">キャンセル</button>
+    <button class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700" 
+            type="submit" 
+            autofocus>削除する</button>
+  <% end %>
+<% end %>
+
+<%= render(DialogCssComponent.new(id: "example-dialog4css")) do |c| %>
+  <% c.with_title do %>
+    サンプルダイアログ4
+  <% end %>
+
+  <% c.with_description do %>
+    情報ダイアログ（OKボタンのみ）
+  <% end %>
+
+  <% c.with_body do %>
+    <p>
+      処理が正常に完了しました。
+    </p>
+    <ul class="list-disc list-inside mt-2 space-y-1">
+      <li>ファイルが保存されました</li>
+      <li>データが更新されました</li>
+      <li>通知が送信されました</li>
+    </ul>
+  <% end %>
+
+  <% c.with_footer do %>
+    <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700" 
+            type="submit" 
+            autofocus>OK</button>
+  <% end %>
+<% end %>
+
+<%= render(DialogCssComponent.new(id: "example-dialog5css", confirm_form: demos_create_path)) do |c| %>
+  <% c.with_title do %>
+    サンプルダイアログ5
+  <% end %>
+
+  <% c.with_description do %>
+    フォーム送信ダイアログ
+  <% end %>
+
+  <% c.with_body do %>
+    <div class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">お名前</label>
+        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="山田太郎" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">メールアドレス</label>
+        <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="example@email.com" />
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render(DialogComponent.new(id: "example-dialog6", confirm_form: demos_create_path)) do |c| %>
   <% c.with_title do %>
     サンプルダイアログ6
   <% end %>
