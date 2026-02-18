@@ -18,7 +18,7 @@
               aria-label="ダイアログを閉じる">&times;</button>
     <% end %>
   </header>
-  <form method="<%= confirm_form ? 'POST' : 'dialog' %>" action="<%= confirm_form || '#' %>">
+  <%= form_with **form_options do |f| %>
     <article class="p-4 text-sm text-gray-700">
       <%= body %>
     </article>
@@ -36,5 +36,5 @@
                 autofocus><%= confirm_text %></button>
       <% end %>
     </footer>
-  </form>
+  <% end %>
 </dialog>

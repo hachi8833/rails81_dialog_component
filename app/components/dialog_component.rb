@@ -33,4 +33,20 @@ class DialogComponent < ViewComponent::Base
   def description_id
     "#{id}-desc"
   end
+
+  def form_method
+    confirm_form.present? ? :post : :dialog
+  end
+
+  def form_url
+    confirm_form || "#"
+  end
+
+  def form_options
+    {
+      method: form_method,
+      url: form_url,
+      data: { turbo: false }
+    }
+  end
 end
