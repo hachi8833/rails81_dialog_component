@@ -1,0 +1,217 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+/* Dialog buttons container and styling */
+.dialog-buttons-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2rem;
+  row-gap: 4rem;
+  max-width: 42rem;
+  margin: 2rem auto 0;
+  background-color: #f3f4f6;
+  padding: 6rem;
+}
+
+.dialog-button {
+  padding: 0.75rem 1.5rem;
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  outline: none;
+}
+
+.dialog-button:focus {
+  outline: 2px solid;
+  outline-offset: 2px;
+}
+
+.dialog-button-blue {
+  background-color: #2563eb;
+}
+
+.dialog-button-blue:hover {
+  background-color: #1d4ed8;
+}
+
+.dialog-button-blue:focus {
+  outline-color: #3b82f6;
+}
+
+.dialog-button-green {
+  background-color: #16a34a;
+}
+
+.dialog-button-green:hover {
+  background-color: #15803d;
+}
+
+.dialog-button-green:focus {
+  outline-color: #22c55e;
+}
+
+.dialog-button-purple {
+  background-color: #9333ea;
+}
+
+.dialog-button-purple:hover {
+  background-color: #7e22ce;
+}
+
+.dialog-button-purple:focus {
+  outline-color: #a855f7;
+}
+
+.dialog-button-red {
+  background-color: #dc2626;
+}
+
+.dialog-button-red:hover {
+  background-color: #b91c1c;
+}
+
+.dialog-button-red:focus {
+  outline-color: #ef4444;
+}
+
+.dialog-button-yellow {
+  background-color: #ca8a04;
+}
+
+.dialog-button-yellow:hover {
+  background-color: #a16207;
+}
+
+.dialog-button-yellow:focus {
+  outline-color: #eab308;
+}
+
+.dialog-button-indigo {
+  background-color: #4f46e5;
+}
+
+.dialog-button-indigo:hover {
+  background-color: #4338ca;
+}
+
+.dialog-button-indigo:focus {
+  outline-color: #6366f1;
+}
+
+/* Dialog Component Styling */
+
+.dialog-component {
+  width: 100%;
+  max-width: 28rem;
+  margin: auto;
+  padding: 0;
+  
+  background-color: white;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.dialog-component::backdrop {
+  background-color: rgb(0 0 0 / 0.6);
+}
+
+.dialog-component__header {
+  position: relative;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dialog-component__title {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.75rem; 
+  font-weight: 600;
+  color: #111827;
+}
+
+.dialog-component__description {
+  margin: 0;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #4b5563;
+}
+
+.dialog-component__close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #6b7280;
+  
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dialog-component__close-button:hover {
+  color: #374151;
+}
+
+.dialog-component__body {
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #374151;
+}
+
+.dialog-component__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.dialog-component__button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.dialog-component__button--secondary {
+  color: #374151;
+  background-color: white;
+  border: 1px solid #d1d5db;
+}
+
+.dialog-component__button--secondary:hover {
+  background-color: #f9fafb;
+}
+
+.dialog-component__button--primary {
+  color: white;
+  background-color: #2563eb;
+  border: 1px solid transparent;
+}
+
+.dialog-component__button--primary:hover {
+  background-color: #1d4ed8;
+}
