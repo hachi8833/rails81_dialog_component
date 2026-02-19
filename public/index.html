@@ -1,0 +1,628 @@
+<!-- BEGIN app/views/layouts/application.html.erb
+--><!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails81 Dialog Component</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rails81 Dialog Component">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    
+
+    
+
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <link rel="stylesheet" href="/assets/application-90e2f874.css" data-turbo-track="reload" />
+<link rel="stylesheet" href="/assets/tailwind-a9125fda.css" data-turbo-track="reload" />
+    <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-bfcdf840.js",
+    "@hotwired/turbo-rails": "/assets/turbo.min-9fd88cd5.js",
+    "@hotwired/stimulus": "/assets/stimulus.min-4b1e420e.js",
+    "@hotwired/stimulus-loading": "/assets/stimulus-loading-1fc53fe7.js",
+    "controllers/application": "/assets/controllers/application-3affb389.js",
+    "controllers/hello_controller": "/assets/controllers/hello_controller-708796bd.js",
+    "controllers": "/assets/controllers/index-ee64e1f1.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-bfcdf840.js">
+<link rel="modulepreload" href="/assets/turbo.min-9fd88cd5.js">
+<link rel="modulepreload" href="/assets/stimulus.min-4b1e420e.js">
+<link rel="modulepreload" href="/assets/stimulus-loading-1fc53fe7.js">
+<link rel="modulepreload" href="/assets/controllers/application-3affb389.js">
+<link rel="modulepreload" href="/assets/controllers/hello_controller-708796bd.js">
+<link rel="modulepreload" href="/assets/controllers/index-ee64e1f1.js">
+<script type="module">import "application"</script>
+  </head>
+
+  <body>
+    <main class="container mx-auto mt-28 px-5 flex flex-col">
+      <!-- BEGIN app/views/demos/index.html.erb
+--><h1 class="text-3xl font-bold text-center mt-12">DialogComponent デモ</h1>
+
+
+<div class="grid grid-cols-2 gap-x-8 gap-y-16 max-w-2xl mt-8 mx-auto bg-gray-100 p-32">
+  <h2 class="text-2xl font-semibold col-span-full text-center">Tailwind版</h2>
+  <button type="button" 
+          commandfor="example-dialog1" 
+          command="show-modal"
+          class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150">
+    ダイアログ1
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog2" 
+          command="show-modal"
+          class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-150">
+    ダイアログ2
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog3" 
+          command="show-modal"
+          class="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-150">
+    ダイアログ3
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog4" 
+          command="show-modal"
+          class="px-6 py-3 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-150">
+    ダイアログ4
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog5" 
+          command="show-modal"
+          class="px-6 py-3 bg-yellow-600 text-white font-semibold rounded-lg shadow-md hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-150">
+    ダイアログ5
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog6" 
+          command="show-modal"
+          class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150">
+    ダイアログ6
+  </button>
+</div>
+
+<div class="grid grid-cols-2 gap-x-8 gap-y-16 max-w-2xl mt-8 mx-auto bg-gray-100 p-32">
+  <h2 class="text-2xl font-semibold col-span-full text-center">通常のCSS版</h2>
+  <button type="button" 
+          commandfor="example-dialog1css" 
+          command="show-modal"
+          class="dialog-button dialog-button-blue">
+    ダイアログ1
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog2css" 
+          command="show-modal"
+          class="dialog-button dialog-button-green">
+    ダイアログ2
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog3css" 
+          command="show-modal"
+          class="dialog-button dialog-button-purple">
+    ダイアログ3
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog4css" 
+          command="show-modal"
+          class="dialog-button dialog-button-red">
+    ダイアログ4
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog5css" 
+          command="show-modal"
+          class="dialog-button dialog-button-yellow">
+    ダイアログ5
+  </button>
+
+  <button type="button" 
+          commandfor="example-dialog6css" 
+          command="show-modal"
+          class="dialog-button dialog-button-indigo">
+    ダイアログ6
+  </button>
+</div>
+
+<!-- BEGIN app/components/dialog_component.html.erb
+--><dialog id="example-dialog1" 
+        class="rounded-lg border-none bg-white p-0 shadow-xl max-w-md w-full m-auto backdrop:bg-black/60 "
+        aria-labelledby="example-dialog1-title" 
+        aria-describedby="example-dialog1-desc" 
+        closedby="any">
+  <header class="relative p-4 border-b border-gray-200">
+    <hgroup>
+      <h2 id="example-dialog1-title" class="m-0 text-lg font-semibold text-gray-900">    c.with_title
+</h2>
+        <p id="example-dialog1-desc" class="m-0 mt-1 text-sm text-gray-600">    c.with_description
+</p>
+    </hgroup>
+      <button type="button" 
+              commandfor="example-dialog1" 
+              command="close" 
+              class="absolute right-4 top-4 text-gray-500 hover:text-gray-700 text-2xl leading-none"
+              aria-label="ダイアログを閉じる">&times;</button>
+  </header>
+  <form data-turbo="false" action="#" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="dialog" />
+    <article class="p-4 text-sm text-gray-700">
+          c.with_body
+
+    </article>
+    <footer class="flex items-center justify-end gap-2 p-4 border-t border-gray-200">
+        <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50" 
+                type="submit" 
+                formmethod="dialog" 
+                formnovalidate 
+                value="cancel">キャンセル</button>
+        <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700" 
+                type="submit" 
+                autofocus>確認</button>
+    </footer>
+</form></dialog>
+<!-- END app/components/dialog_component.html.erb -->
+<!-- BEGIN app/components/dialog_component.html.erb
+--><dialog id="example-dialog2" 
+        class="rounded-lg border-none bg-white p-0 shadow-xl max-w-md w-full m-auto backdrop:bg-black/60 "
+        aria-labelledby="example-dialog2-title" 
+        aria-describedby="example-dialog2-desc" 
+        closedby="any">
+  <header class="relative p-4 border-b border-gray-200">
+    <hgroup>
+      <h2 id="example-dialog2-title" class="m-0 text-lg font-semibold text-gray-900">    サンプルダイアログ2
+</h2>
+        <p id="example-dialog2-desc" class="m-0 mt-1 text-sm text-gray-600">    確認ダイアログの例
+</p>
+    </hgroup>
+      <button type="button" 
+              commandfor="example-dialog2" 
+              command="close" 
+              class="absolute right-4 top-4 text-gray-500 hover:text-gray-700 text-2xl leading-none"
+              aria-label="ダイアログを閉じる">&times;</button>
+  </header>
+  <form data-turbo="false" action="#" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="dialog" />
+    <article class="p-4 text-sm text-gray-700">
+          <p>
+      このダイアログは確認用です。
+      本当に実行してよろしいですか？
+    </p>
+
+    </article>
+    <footer class="flex items-center justify-end gap-2 p-4 border-t border-gray-200">
+        <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50" 
+                type="submit" 
+                formmethod="dialog" 
+                formnovalidate 
+                value="cancel">キャンセル</button>
+        <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700" 
+                type="submit" 
+                autofocus>確認</button>
+    </footer>
+</form></dialog>
+<!-- END app/components/dialog_component.html.erb -->
+<!-- BEGIN app/components/dialog_component.html.erb
+--><dialog id="example-dialog3" 
+        class="rounded-lg border-none bg-white p-0 shadow-xl max-w-md w-full m-auto backdrop:bg-black/60 "
+        aria-labelledby="example-dialog3-title" 
+        aria-describedby="example-dialog3-desc" 
+        closedby="none">
+  <header class="relative p-4 border-b border-gray-200">
+    <hgroup>
+      <h2 id="example-dialog3-title" class="m-0 text-lg font-semibold text-gray-900">    サンプルダイアログ3
+</h2>
+        <p id="example-dialog3-desc" class="m-0 mt-1 text-sm text-gray-600">    ダイアログの外をクリックしてもEscキーを押しても閉じません
+</p>
+    </hgroup>
+  </header>
+  <form data-turbo="false" action="#" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="dialog" />
+    <article class="p-4 text-sm text-gray-700">
+          <p>
+      <strong class="font-semibold">警告:</strong> この操作は取り消せません。
+      本当に削除しますか？
+    </p>
+
+    </article>
+    <footer class="flex items-center justify-end gap-2 p-4 border-t border-gray-200">
+            <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50" 
+            type="submit" 
+            formmethod="dialog" 
+            formnovalidate 
+            value="cancel">キャンセル</button>
+    <button class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700" 
+            type="submit" 
+            autofocus>削除する</button>
+
+    </footer>
+</form></dialog>
+<!-- END app/components/dialog_component.html.erb -->
+<!-- BEGIN app/components/dialog_component.html.erb
+--><dialog id="example-dialog4" 
+        class="rounded-lg border-none bg-white p-0 shadow-xl max-w-md w-full m-auto backdrop:bg-black/60 "
+        aria-labelledby="example-dialog4-title" 
+        aria-describedby="example-dialog4-desc" 
+        closedby="any">
+  <header class="relative p-4 border-b border-gray-200">
+    <hgroup>
+      <h2 id="example-dialog4-title" class="m-0 text-lg font-semibold text-gray-900">    サンプルダイアログ4
+</h2>
+        <p id="example-dialog4-desc" class="m-0 mt-1 text-sm text-gray-600">    情報ダイアログ（OKボタンのみ）
+</p>
+    </hgroup>
+      <button type="button" 
+              commandfor="example-dialog4" 
+              command="close" 
+              class="absolute right-4 top-4 text-gray-500 hover:text-gray-700 text-2xl leading-none"
+              aria-label="ダイアログを閉じる">&times;</button>
+  </header>
+  <form data-turbo="false" action="#" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="dialog" />
+    <article class="p-4 text-sm text-gray-700">
+          <p>
+      処理が正常に完了しました。
+    </p>
+    <ul class="list-disc list-inside mt-2 space-y-1">
+      <li>ファイルが保存されました</li>
+      <li>データが更新されました</li>
+      <li>通知が送信されました</li>
+    </ul>
+
+    </article>
+    <footer class="flex items-center justify-end gap-2 p-4 border-t border-gray-200">
+            <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700" 
+            type="submit" 
+            autofocus>OK</button>
+
+    </footer>
+</form></dialog>
+<!-- END app/components/dialog_component.html.erb -->
+<!-- BEGIN app/components/dialog_component.html.erb
+--><dialog id="example-dialog5" 
+        class="rounded-lg border-none bg-white p-0 shadow-xl max-w-md w-full m-auto backdrop:bg-black/60 "
+        aria-labelledby="example-dialog5-title" 
+        aria-describedby="example-dialog5-desc" 
+        closedby="any">
+  <header class="relative p-4 border-b border-gray-200">
+    <hgroup>
+      <h2 id="example-dialog5-title" class="m-0 text-lg font-semibold text-gray-900">    サンプルダイアログ5
+</h2>
+        <p id="example-dialog5-desc" class="m-0 mt-1 text-sm text-gray-600">    フォーム送信ダイアログ
+</p>
+    </hgroup>
+      <button type="button" 
+              commandfor="example-dialog5" 
+              command="close" 
+              class="absolute right-4 top-4 text-gray-500 hover:text-gray-700 text-2xl leading-none"
+              aria-label="ダイアログを閉じる">&times;</button>
+  </header>
+  <form data-turbo="false" action="/demos/create/" accept-charset="UTF-8" method="post">
+    <article class="p-4 text-sm text-gray-700">
+          <div class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">お名前</label>
+        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="山田太郎" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">メールアドレス</label>
+        <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="example@email.com" />
+      </div>
+    </div>
+
+    </article>
+    <footer class="flex items-center justify-end gap-2 p-4 border-t border-gray-200">
+        <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50" 
+                type="submit" 
+                formmethod="dialog" 
+                formnovalidate 
+                value="cancel">キャンセル</button>
+        <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700" 
+                type="submit" 
+                autofocus>確認</button>
+    </footer>
+</form></dialog>
+<!-- END app/components/dialog_component.html.erb -->
+<!-- BEGIN app/components/dialog_component.html.erb
+--><dialog id="example-dialog6" 
+        class="rounded-lg border-none bg-white p-0 shadow-xl max-w-md w-full m-auto backdrop:bg-black/60 "
+        aria-labelledby="example-dialog6-title" 
+        aria-describedby="example-dialog6-desc" 
+        closedby="any">
+  <header class="relative p-4 border-b border-gray-200">
+    <hgroup>
+      <h2 id="example-dialog6-title" class="m-0 text-lg font-semibold text-gray-900">    サンプルダイアログ6
+</h2>
+        <p id="example-dialog6-desc" class="m-0 mt-1 text-sm text-gray-600">    設定ダイアログ
+</p>
+    </hgroup>
+      <button type="button" 
+              commandfor="example-dialog6" 
+              command="close" 
+              class="absolute right-4 top-4 text-gray-500 hover:text-gray-700 text-2xl leading-none"
+              aria-label="ダイアログを閉じる">&times;</button>
+  </header>
+  <form data-turbo="false" action="/demos/create/" accept-charset="UTF-8" method="post">
+    <article class="p-4 text-sm text-gray-700">
+          <div class="space-y-3">
+      <label class="flex items-center gap-2">
+        <input type="checkbox" class="rounded" checked />
+        <span>メール通知を受け取る</span>
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox" class="rounded" checked />
+        <span>プッシュ通知を有効にする</span>
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox" class="rounded" />
+        <span>マーケティング情報を受け取る</span>
+      </label>
+    </div>
+
+    </article>
+    <footer class="flex items-center justify-end gap-2 p-4 border-t border-gray-200">
+        <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50" 
+                type="submit" 
+                formmethod="dialog" 
+                formnovalidate 
+                value="cancel">キャンセル</button>
+        <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700" 
+                type="submit" 
+                autofocus>確認</button>
+    </footer>
+</form></dialog>
+<!-- END app/components/dialog_component.html.erb -->
+<!-- BEGIN app/components/dialog_css_component.html.erb
+--><dialog id="example-dialog1css" 
+        class="dialog-component "
+        aria-labelledby="example-dialog1css-title" 
+        aria-describedby="example-dialog1css-desc" 
+        closedby="any">
+  <header class="dialog-component__header">
+    <hgroup>
+      <h2 id="example-dialog1css-title" class="dialog-component__title">    c.with_title
+</h2>
+        <p id="example-dialog1css-desc" class="dialog-component__description">    c.with_description
+</p>
+    </hgroup>
+      <button type="button" 
+              commandfor="example-dialog1css" 
+              command="close" 
+              class="dialog-component__close-button"
+              aria-label="ダイアログを閉じる">&times;</button>
+  </header>
+  <form data-turbo="false" action="#" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="dialog" />
+    <article class="dialog-component__body">
+          c.with_body
+
+    </article>
+    <footer class="dialog-component__footer">
+        <button class="dialog-component__button dialog-component__button--secondary" 
+                type="submit" 
+                formmethod="dialog" 
+                formnovalidate 
+                value="cancel">キャンセル</button>
+        <button class="dialog-component__button dialog-component__button--primary" 
+                type="submit" 
+                autofocus>確認</button>
+    </footer>
+</form></dialog>
+<!-- END app/components/dialog_css_component.html.erb -->
+<!-- BEGIN app/components/dialog_css_component.html.erb
+--><dialog id="example-dialog2css" 
+        class="dialog-component "
+        aria-labelledby="example-dialog2css-title" 
+        aria-describedby="example-dialog2css-desc" 
+        closedby="any">
+  <header class="dialog-component__header">
+    <hgroup>
+      <h2 id="example-dialog2css-title" class="dialog-component__title">    サンプルダイアログ2
+</h2>
+        <p id="example-dialog2css-desc" class="dialog-component__description">    確認ダイアログの例
+</p>
+    </hgroup>
+      <button type="button" 
+              commandfor="example-dialog2css" 
+              command="close" 
+              class="dialog-component__close-button"
+              aria-label="ダイアログを閉じる">&times;</button>
+  </header>
+  <form data-turbo="false" action="#" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="dialog" />
+    <article class="dialog-component__body">
+          <p>
+      このダイアログは確認用です。
+      本当に実行してよろしいですか？
+    </p>
+
+    </article>
+    <footer class="dialog-component__footer">
+        <button class="dialog-component__button dialog-component__button--secondary" 
+                type="submit" 
+                formmethod="dialog" 
+                formnovalidate 
+                value="cancel">キャンセル</button>
+        <button class="dialog-component__button dialog-component__button--primary" 
+                type="submit" 
+                autofocus>確認</button>
+    </footer>
+</form></dialog>
+<!-- END app/components/dialog_css_component.html.erb -->
+<!-- BEGIN app/components/dialog_css_component.html.erb
+--><dialog id="example-dialog3css" 
+        class="dialog-component "
+        aria-labelledby="example-dialog3css-title" 
+        aria-describedby="example-dialog3css-desc" 
+        closedby="none">
+  <header class="dialog-component__header">
+    <hgroup>
+      <h2 id="example-dialog3css-title" class="dialog-component__title">    サンプルダイアログ3
+</h2>
+        <p id="example-dialog3css-desc" class="dialog-component__description">    ダイアログの外をクリックしてもEscキーを押しても閉じません
+</p>
+    </hgroup>
+  </header>
+  <form data-turbo="false" action="#" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="dialog" />
+    <article class="dialog-component__body">
+          <p>
+      <strong class="font-semibold">警告:</strong> この操作は取り消せません。
+      本当に削除しますか？
+    </p>
+
+    </article>
+    <footer class="dialog-component__footer">
+            <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50" 
+            type="submit" 
+            formmethod="dialog" 
+            formnovalidate 
+            value="cancel">キャンセル</button>
+    <button class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700" 
+            type="submit" 
+            autofocus>削除する</button>
+
+    </footer>
+</form></dialog>
+<!-- END app/components/dialog_css_component.html.erb -->
+<!-- BEGIN app/components/dialog_css_component.html.erb
+--><dialog id="example-dialog4css" 
+        class="dialog-component "
+        aria-labelledby="example-dialog4css-title" 
+        aria-describedby="example-dialog4css-desc" 
+        closedby="any">
+  <header class="dialog-component__header">
+    <hgroup>
+      <h2 id="example-dialog4css-title" class="dialog-component__title">    サンプルダイアログ4
+</h2>
+        <p id="example-dialog4css-desc" class="dialog-component__description">    情報ダイアログ（OKボタンのみ）
+</p>
+    </hgroup>
+      <button type="button" 
+              commandfor="example-dialog4css" 
+              command="close" 
+              class="dialog-component__close-button"
+              aria-label="ダイアログを閉じる">&times;</button>
+  </header>
+  <form data-turbo="false" action="#" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="dialog" />
+    <article class="dialog-component__body">
+          <p>
+      処理が正常に完了しました。
+    </p>
+    <ul class="list-disc list-inside mt-2 space-y-1">
+      <li>ファイルが保存されました</li>
+      <li>データが更新されました</li>
+      <li>通知が送信されました</li>
+    </ul>
+
+    </article>
+    <footer class="dialog-component__footer">
+            <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700" 
+            type="submit" 
+            autofocus>OK</button>
+
+    </footer>
+</form></dialog>
+<!-- END app/components/dialog_css_component.html.erb -->
+<!-- BEGIN app/components/dialog_css_component.html.erb
+--><dialog id="example-dialog5css" 
+        class="dialog-component "
+        aria-labelledby="example-dialog5css-title" 
+        aria-describedby="example-dialog5css-desc" 
+        closedby="any">
+  <header class="dialog-component__header">
+    <hgroup>
+      <h2 id="example-dialog5css-title" class="dialog-component__title">    サンプルダイアログ5
+</h2>
+        <p id="example-dialog5css-desc" class="dialog-component__description">    フォーム送信ダイアログ
+</p>
+    </hgroup>
+      <button type="button" 
+              commandfor="example-dialog5css" 
+              command="close" 
+              class="dialog-component__close-button"
+              aria-label="ダイアログを閉じる">&times;</button>
+  </header>
+  <form data-turbo="false" action="/demos/create/" accept-charset="UTF-8" method="post">
+    <article class="dialog-component__body">
+          <div class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">お名前</label>
+        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="山田太郎" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">メールアドレス</label>
+        <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="example@email.com" />
+      </div>
+    </div>
+
+    </article>
+    <footer class="dialog-component__footer">
+        <button class="dialog-component__button dialog-component__button--secondary" 
+                type="submit" 
+                formmethod="dialog" 
+                formnovalidate 
+                value="cancel">キャンセル</button>
+        <button class="dialog-component__button dialog-component__button--primary" 
+                type="submit" 
+                autofocus>確認</button>
+    </footer>
+</form></dialog>
+<!-- END app/components/dialog_css_component.html.erb -->
+<!-- BEGIN app/components/dialog_component.html.erb
+--><dialog id="example-dialog6" 
+        class="rounded-lg border-none bg-white p-0 shadow-xl max-w-md w-full m-auto backdrop:bg-black/60 "
+        aria-labelledby="example-dialog6-title" 
+        aria-describedby="example-dialog6-desc" 
+        closedby="any">
+  <header class="relative p-4 border-b border-gray-200">
+    <hgroup>
+      <h2 id="example-dialog6-title" class="m-0 text-lg font-semibold text-gray-900">    サンプルダイアログ6
+</h2>
+        <p id="example-dialog6-desc" class="m-0 mt-1 text-sm text-gray-600">    設定ダイアログ
+</p>
+    </hgroup>
+      <button type="button" 
+              commandfor="example-dialog6" 
+              command="close" 
+              class="absolute right-4 top-4 text-gray-500 hover:text-gray-700 text-2xl leading-none"
+              aria-label="ダイアログを閉じる">&times;</button>
+  </header>
+  <form data-turbo="false" action="/demos/create/" accept-charset="UTF-8" method="post">
+    <article class="p-4 text-sm text-gray-700">
+          <div class="space-y-3">
+      <label class="flex items-center gap-2">
+        <input type="checkbox" class="rounded" checked />
+        <span>メール通知を受け取る</span>
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox" class="rounded" checked />
+        <span>プッシュ通知を有効にする</span>
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox" class="rounded" />
+        <span>マーケティング情報を受け取る</span>
+      </label>
+    </div>
+
+    </article>
+    <footer class="flex items-center justify-end gap-2 p-4 border-t border-gray-200">
+        <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50" 
+                type="submit" 
+                formmethod="dialog" 
+                formnovalidate 
+                value="cancel">キャンセル</button>
+        <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700" 
+                type="submit" 
+                autofocus>確認</button>
+    </footer>
+</form></dialog>
+<!-- END app/components/dialog_component.html.erb --><!-- END app/views/demos/index.html.erb -->
+    </main>
+  </body>
+</html>
+<!-- END app/views/layouts/application.html.erb -->
